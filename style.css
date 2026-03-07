@@ -1,0 +1,220 @@
+body{
+font-family:Arial;
+margin:0;
+background:#f5f6fa;
+}
+
+/* LOGIN PAGE */
+
+.login-container{
+width:340px;
+margin:120px auto;
+background:white;
+padding:30px;
+border-radius:8px;
+text-align:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo{
+width:60px;
+margin-bottom:10px;
+}
+
+.login-container input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+.login-container button{
+width:100%;
+padding:10px;
+background:#6c3bff;
+border:none;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+.demo{
+margin-top:10px;
+font-size:14px;
+}
+
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:white;
+border-bottom:1px solid #ddd;
+}
+
+.nav-left{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.nav-left img{
+width:35px;
+}
+
+.nav-right input{
+padding:8px;
+border:1px solid #ccc;
+border-radius:4px;
+}
+
+.nav-right button{
+padding:8px 12px;
+background:#6c3bff;
+color:white;
+border:none;
+border-radius:4px;
+}
+
+
+/* TABS */
+
+.tabs{
+padding:20px 30px;
+}
+
+.tabs button{
+padding:10px 20px;
+margin-right:10px;
+border:none;
+background:#eee;
+cursor:pointer;
+border-radius:5px;
+}
+
+.tabs button.active{
+background:#6c3bff;
+color:white;
+}
+
+
+/* ISSUE HEADER */
+
+.issues-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 30px;
+}
+
+.left-info{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.left-info img{
+width:30px;
+}
+
+.status-info{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.status-info img{
+width:18px;
+}
+
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+padding:30px;
+}
+
+
+/* CARD */
+
+.card{
+background:white;
+padding:15px;
+border-radius:6px;
+cursor:pointer;
+box-shadow:0 1px 5px rgba(0,0,0,0.1);
+}
+
+.card h3{
+margin:0 0 8px 0;
+}
+
+.card p{
+font-size:14px;
+margin:4px 0;
+}
+
+.open{
+border-top:5px solid green;
+}
+
+.closed{
+border-top:5px solid purple;
+}
+
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+}
+
+.modal-content{
+background:white;
+width:350px;
+padding:20px;
+margin:150px auto;
+border-radius:6px;
+}
+
+
+/* SPINNER */
+
+.spinner{
+display:none;
+text-align:center;
+font-size:18px;
+padding:30px;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:600px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Issues Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="nav-left">
+<img src="assets/github-logo.png" alt="">
+<h3>GitHub Issues Tracker</h3>
+</div>
+
+<div class="nav-right">
+<input id="searchInput" placeholder="Search issues...">
+<button onclick="searchIssue()">Search</button>
+</div>
+
+</nav>
+
+
+<div class="tabs">
+
+<button id="allTab" onclick="loadIssues('all')">All</button>
+<button id="openTab" onclick="loadIssues('open')">Open</button>
+<button id="closedTab" onclick="loadIssues('closed')">Closed</button>
+
+</div>
+
+
+
+<div class="issues-header">
+
+<div class="left-info">
+
+<img src="assets/Aperture.png" alt="">
+
+<div>
+<h4><span id="issueCount">0</span> Issues</h4>
+<p>Track and manage your project issues</p>
+</div>
+
+</div>
+
+
+<div class="status-info">
+
+<img src="assets/Open-status.png" alt="">
+<span>Open</span>
+
+<img src="assets/Closed-status.png" alt="">
+<span>Closed</span>
+
+</div>
+
+</div>
+
+
+<div id="spinner" class="spinner">
+Loading Issues...
+</div>
+
+
+<div id="issuesContainer" class="grid"></div>
+
+
+
+<div id="modal" class="modal">
+
+<div class="modal-content">
+
+<h2 id="modalTitle"></h2>
+
+<p id="modalDesc"></p>
+
+<p id="modalAuthor"></p>
+
+<p id="modalCategory"></p>
+
+<p id="modalPriority"></p>
+
+<p id="modalLabel"></p>
+
+<p id="modalDate"></p>
+
+<button onclick="closeModal()">Close</button>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
