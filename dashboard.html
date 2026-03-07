@@ -1,98 +1,213 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+
 <head>
-<title>Issues Dashboard</title>
-<link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GitHub Issues Tracker</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet" href="css/style.css">
+
 </head>
 
-<body>
+<body class="bg-gray-100">
 
-<nav class="navbar">
+<!-- NAVBAR -->
 
-<div class="nav-left">
-<img src="assets/github-logo.png" alt="">
-<h3>GitHub Issues Tracker</h3>
-</div>
+<div class="flex justify-between items-center bg-white p-4 shadow">
 
-<div class="nav-right">
-<input id="searchInput" placeholder="Search issues...">
-<button onclick="searchIssue()">Search</button>
-</div>
+<div class="flex items-center gap-2">
 
-</nav>
+<img src="assets/github-logo.png" class="w-6">
 
-
-<div class="tabs">
-
-<button id="allTab" onclick="loadIssues('all')">All</button>
-<button id="openTab" onclick="loadIssues('open')">Open</button>
-<button id="closedTab" onclick="loadIssues('closed')">Closed</button>
+<h1 class="font-bold text-lg">
+GitHub Issues Tracker
+</h1>
 
 </div>
 
+<div class="flex gap-2">
 
+<input
+id="searchInput"
+type="text"
+placeholder="Search issues..."
+class="border p-2 rounded"
+/>
 
-<div class="issues-header">
+<button
+onclick="searchIssues()"
+class="bg-purple-600 text-white px-4 rounded"
 
-<div class="left-info">
+>
 
-<img src="assets/Aperture.png" alt="">
+Search </button>
+
+</div>
+
+</div>
+
+<!-- MAIN SECTION -->
+
+<div class="p-6">
+
+<!-- Tabs -->
+
+<div class="flex gap-3 mb-6">
+
+<button
+id="tabAll"
+onclick="changeTab('all')"
+class="tab active"
+
+>
+
+All </button>
+
+<button
+id="tabOpen"
+onclick="changeTab('open')"
+class="tab"
+
+>
+
+Open </button>
+
+<button
+id="tabClosed"
+onclick="changeTab('closed')"
+class="tab"
+
+>
+
+Closed </button>
+
+</div>
+
+<!-- Issue Count + Status -->
+
+<div class="flex justify-between items-center mb-6">
+
+<div class="flex items-center gap-2">
+
+<img src="assets/Aperture.png" class="w-6">
 
 <div>
-<h4><span id="issueCount">0</span> Issues</h4>
-<p>Track and manage your project issues</p>
-</div>
 
-</div>
+<p id="issueCount" class="font-semibold">
+0 Issues
+</p>
 
-
-<div class="status-info">
-
-<img src="assets/Open-status.png" alt="">
-<span>Open</span>
-
-<img src="assets/Closed-status.png" alt="">
-<span>Closed</span>
+<p class="text-sm text-gray-500">
+Track and manage your project issues
+</p>
 
 </div>
 
 </div>
 
+<div class="flex gap-4 text-sm">
 
-<div id="spinner" class="spinner">
+<span class="flex items-center gap-1">
+
+<img src="assets/Open-Status.png" class="w-4">
+
+Open
+
+</span>
+
+<span class="flex items-center gap-1">
+
+<img src="assets/Closed-Status.png" class="w-4">
+
+Closed
+
+</span>
+
+</div>
+
+</div>
+
+<!-- Loading Spinner -->
+
+<div
+id="loading"
+class="hidden text-center text-lg mb-6"
+>
 Loading Issues...
 </div>
 
+<!-- Issue Cards Grid -->
 
-<div id="issuesContainer" class="grid"></div>
-
-
-
-<div id="modal" class="modal">
-
-<div class="modal-content">
-
-<h2 id="modalTitle"></h2>
-
-<p id="modalDesc"></p>
-
-<p id="modalAuthor"></p>
-
-<p id="modalCategory"></p>
-
-<p id="modalPriority"></p>
-
-<p id="modalLabel"></p>
-
-<p id="modalDate"></p>
-
-<button onclick="closeModal()">Close</button>
+<div
+id="issuesContainer"
+class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+>
 
 </div>
 
 </div>
 
-<script src="script.js"></script>
+<!-- MODAL -->
+
+<div
+id="issueModal"
+class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center"
+>
+
+<div class="bg-white p-6 rounded-lg w-96">
+
+<h2
+id="modalTitle"
+class="font-bold text-lg mb-2"
+></h2>
+
+<p
+id="modalDesc"
+class="text-gray-600 mb-4"
+></p>
+
+<p>
+<b>Author:</b>
+<span id="modalAuthor"></span>
+</p>
+
+<p>
+<b>Priority:</b>
+<span id="modalPriority"></span>
+</p>
+
+<p>
+<b>Label:</b>
+<span id="modalLabel"></span>
+</p>
+
+<p>
+<b>Created At:</b>
+<span id="modalDate"></span>
+</p>
+
+<button
+onclick="closeModal()"
+class="bg-purple-600 text-white mt-4 px-4 py-2 rounded"
+
+>
+
+Close </button>
+
+</div>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+
+<script src="js/modal.js"></script>
 
 </body>
+
 </html>

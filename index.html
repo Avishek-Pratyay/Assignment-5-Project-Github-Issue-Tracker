@@ -1,49 +1,81 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+
 <head>
-<title>GitHub Issues Tracker</title>
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GitHub Issues Tracker - Login</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet" href="css/style.css">
+
 </head>
 
-<body>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
 
-<div class="login-container">
+<div class="bg-white p-8 rounded-xl shadow-lg w-96 text-center">
 
-<img src="assets/github-logo.png" alt="" class="logo">
+<!-- Logo -->
 
-<h2>GitHub Issues Tracker</h2>
-<p class="subtitle">Sign in to manage your issues</p>
+<img src="assets/github-logo.png" alt= ""class="w-16 mx-auto mb-4">
 
+<h1 class="text-xl font-bold">GitHub Issues Tracker</h1>
+<p class="text-gray-500 mb-6">Sign in to manage your issues</p>
 
-<label class="input-label">Username</label>
-<input type="text" id="username" placeholder="Enter your username">
-<p class="default-text">Default: admin</p>
+<!-- Username -->
 
+<input
+id="username"
+type="text"
+placeholder="Enter Username"
+class="border w-full p-2 mb-3 rounded"
+/>
 
-<label class="input-label">Password</label>
-<input type="password" id="password" placeholder="Enter your password">
-<p class="default-text">Default Password: admin123</p>
+<p class="text-xs text-purple-600 mb-2 text-left">
+Default: admin
+</p>
 
+<!-- Password -->
 
-<button onclick="login()" class="login-btn">Sign In</button>
+<input
+id="password"
+type="password"
+placeholder="Enter Password"
+class="border w-full p-2 mb-3 rounded"
+/>
 
+<p class="text-xs text-purple-600 mb-4 text-left">
+Default: admin123
+</p>
 
-<div class="divider">
-<span>OR</span>
+<!-- Sign In Button -->
+
+<button
+onclick="login()"
+class="bg-purple-600 hover:bg-purple-700 text-white w-full py-2 rounded"
+
+>
+
+Sign In </button>
+
+<!-- Demo credentials -->
+
+<div class="mt-6 text-sm text-gray-500 border-t pt-4">
+
+<p class="font-semibold">Demo Credentials</p>
+
+<p>Username: admin</p>
+<p>Password: admin123</p>
+
 </div>
 
-
-<p class="demo-title">Demo Credential</p>
-
-
-<div class="demo-card">
-<p><b>Username:</b> admin</p>
-<p><b>Password:</b> admin123</p>
 </div>
 
-</div>
-
-<script src="script.js"></script>
+<script src="js/login.js"></script>
 
 </body>
+
 </html>
