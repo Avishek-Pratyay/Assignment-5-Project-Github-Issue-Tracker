@@ -9,20 +9,36 @@
 
 <div class="login-container">
 
-<img src="assets/github-logo.png"alt="" class="logo">
+<img src="assets/github-logo.png" alt="" class="logo">
 
-<h2>Github Issues Tracker</h2>
-<p>Sign in to manage your issues</p>
+<h2>GitHub Issues Tracker</h2>
+<p class="subtitle">Sign in to manage your issues</p>
 
-<input id="username" type="text" placeholder="Enter Username">
-<input id="password" type="password" placeholder="Enter Password">
 
-<button onclick="login()">Sign In</button>
+<label class="input-label">Username</label>
+<input type="text" id="username" placeholder="Enter your username">
+<p class="default-text">Default: admin</p>
 
-<div class="demo">
-<p>Demo Credentials</p>
-<p>Username: admin</p>
-<p>Password: admin123</p>
+
+<label class="input-label">Password</label>
+<input type="password" id="password" placeholder="Enter your password">
+<p class="default-text">Default Password: admin123</p>
+
+
+<button onclick="login()" class="login-btn">Sign In</button>
+
+
+<div class="divider">
+<span>OR</span>
+</div>
+
+
+<p class="demo-title">Demo Credential</p>
+
+
+<div class="demo-card">
+<p><b>Username:</b> admin</p>
+<p><b>Password:</b> admin123</p>
 </div>
 
 </div>
