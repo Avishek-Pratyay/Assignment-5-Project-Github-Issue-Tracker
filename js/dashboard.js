@@ -103,7 +103,7 @@ help wanted
 
 </div>
 
-<hr class="mb-3">
+
 
 <!-- underline -->
 
