@@ -21,8 +21,7 @@ statusBadge.className =
 
 openedBy.innerText = "opened by " + issue.author
 
-}
-else{
+}else{
 
 statusBadge.innerText = "Closed"
 
@@ -40,7 +39,8 @@ new Date(issue.createdAt).toLocaleDateString()
 
 // DESCRIPTION
 
-document.getElementById("modalDesc").innerText = issue.description
+document.getElementById("modalDesc").innerText =
+issue.description
 
 // ASSIGNEE
 
@@ -56,19 +56,58 @@ priority.innerText = issue.priority
 if(issue.priority === "HIGH"){
 
 priority.className =
-"px-2 py-1 rounded-full text-xs border border-red-300 bg-red-100 text-red-600"
+"px-2 py-1 text-xs rounded-full border border-red-300 bg-red-100 text-red-600"
 
 }
 else if(issue.priority === "MEDIUM"){
 
 priority.className =
-"px-2 py-1 rounded-full text-xs border border-yellow-300 bg-yellow-100 text-yellow-700"
+"px-2 py-1 text-xs rounded-full border border-yellow-300 bg-yellow-100 text-yellow-700"
 
 }
 else{
 
 priority.className =
-"px-2 py-1 rounded-full text-xs border border-gray-300 bg-gray-100 text-gray-600"
+"px-2 py-1 text-xs rounded-full border border-gray-300 bg-gray-100 text-gray-600"
+
+}
+
+// LABELS
+
+const labelsContainer = document.getElementById("modalLabels")
+
+labelsContainer.innerHTML = ""
+
+if(issue.labels && issue.labels.length > 0){
+
+issue.labels.forEach(label => {
+
+const name = label.name ? label.name : label
+
+let colorClass = "bg-gray-100 text-gray-700"
+
+if(name.toLowerCase() === "bug"){
+colorClass = "bg-red-100 text-red-600 border border-red-300"
+}
+
+else if(name.toLowerCase() === "help wanted"){
+colorClass = "bg-yellow-100 text-yellow-700 border border-yellow-300"
+}
+
+else if(name.toLowerCase() === "enhancement"){
+colorClass = "bg-green-100 text-green-700 border border-green-300"
+}
+
+const span = document.createElement("span")
+
+span.className =
+`px-2 py-1 text-xs rounded-full ${colorClass}`
+
+span.innerText = name
+
+labelsContainer.appendChild(span)
+
+})
 
 }
 
@@ -80,6 +119,8 @@ modal.classList.remove("hidden")
 modal.classList.add("flex")
 
 }
+
+// CLOSE MODAL
 
 function closeModal(){
 

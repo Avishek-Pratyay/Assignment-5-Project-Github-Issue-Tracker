@@ -158,10 +158,12 @@ class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
 
 <!-- ISSUE DETAILS MODAL -->
 
+<!-- ISSUE DETAILS MODAL -->
+
 <div id="issueModal"
 class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center">
 
-<div class="bg-white p-6 rounded-lg w-[460px] shadow-lg">
+<div class="bg-white p-6 rounded-lg w-[460px] shadow-lg flex flex-col min-h-[300px]">
 
 <!-- HEADER LINE -->
 
@@ -182,17 +184,72 @@ class="px-2 py-1 text-xs rounded-full border"></span>
 
 <!-- LABELS -->
 
-<div class="flex gap-2 mb-4">
+<div id="modalLabels" class="flex gap-2 mb-4"></div>
 
-<span class="px-2 py-1 bg-red-100 text-red-600 border border-red-300 rounded-full text-xs">
-bug
-</span>
+<!-- DESCRIPTION -->
 
-<span class="px-2 py-1 bg-yellow-100 text-yellow-700 border border-yellow-300 rounded-full text-xs">
-help wanted
-</span>
+<p id="modalDesc"
+class="text-sm text-gray-600 mb-6"></p>
+
+<!-- ASSIGNEE + PRIORITY -->
+
+<div class="flex gap-20 items-start text-sm">
+
+<div>
+
+<p class="text-gray-500">Assignee:</p>
+
+<p id="modalAssignee" class="font-medium"></p>
 
 </div>
+
+<div>
+
+<p class="text-gray-500">Priority:</p>
+
+<span id="modalPriority"
+class="px-2 py-1 rounded-full text-xs border"></span>
+
+</div>
+
+</div>
+
+<!-- CLOSE BUTTON (BOTTOM RIGHT) -->
+
+<div class="mt-auto flex justify-end">
+
+<button
+onclick="closeModal()"
+class="bg-purple-600 text-white px-4 py-2 rounded">
+Close </button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- HEADER LINE -->
+
+<div class="flex items-center gap-2 text-sm mb-4">
+
+<span id="modalStatusBadge"
+class="px-2 py-1 text-xs rounded-full border"></span>
+
+<span>•</span>
+
+<span id="modalOpenedBy"></span>
+
+<span>•</span>
+
+<span id="modalDate"></span>
+
+</div>
+
+<!-- LABELS -->
+
+<div id="modalLabels" class="flex gap-2 mb-4"></div>
 
 <!-- DESCRIPTION -->
 
