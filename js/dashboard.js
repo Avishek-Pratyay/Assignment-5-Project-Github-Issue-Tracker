@@ -59,11 +59,51 @@ issue.priority === "HIGH"
 ? "bg-yellow-100 text-yellow-700 border border-yellow-300 rounded-full px-2 py-1"
 : "bg-gray-100 text-gray-600 border border-gray-300 rounded-full px-2 py-1"
 
-const label = issue.label ? issue.label : ""
+/* -------- LABELS (DYNAMIC) -------- */
+
+let labelsHTML = ""
+
+if(issue.labels && issue.labels.length > 0){
+
+issue.labels.forEach(label => {
+
+const name = label.name ? label.name : label
+
+let colorClass =
+"px-2 py-1 rounded-full shadow-sm"
+
+if(name.toLowerCase() === "bug"){
+colorClass +=
+" bg-red-100 text-red-600 border border-red-300"
+}
+
+else if(name.toLowerCase() === "help wanted"){
+colorClass +=
+" bg-yellow-100 text-yellow-700 border border-yellow-300"
+}
+
+else if(name.toLowerCase() === "enhancement"){
+colorClass +=
+" bg-green-100 text-green-700 border border-green-300"
+}
+
+else{
+colorClass +=
+" bg-gray-100 text-gray-700 border border-gray-300"
+}
+
+labelsHTML += `<span class="${colorClass}">
+${name} </span>`
+
+})
+
+}
+
+/* -------- CARD HTML -------- */
 
 container.innerHTML += `
 
-<div class="issue-card ${border}" onclick="openModal(${issue.id})">
+<div class="issue-card ${border}" onclick="openModal('${issue._id || issue.id}')">
 
 <!-- top row -->
 
@@ -71,7 +111,7 @@ container.innerHTML += `
 
 <img src="${statusIcon}" class="w-4">
 
-<span class="text-xs px-2 py-1 rounded ${priorityColor}">
+<span class="text-xs ${priorityColor}">
 ${issue.priority}
 </span>
 
@@ -89,26 +129,17 @@ ${issue.title}
 ${issue.description.substring(0,80)}...
 </p>
 
-<!--label-->
+<!-- labels -->
 
 <div class="flex gap-3 mb-3 text-xs">
 
-<span class="px-2 py-1 bg-red-100 text-red-600 border border-red-300 rounded-full shadow-sm">
-bug
-</span>
-
-<span class="px-2 py-1 bg-yellow-100 text-yellow-700 border border-yellow-300 rounded-full shadow-sm">
-help wanted
-</span>
+${labelsHTML}
 
 </div>
-
-
 
 <!-- underline -->
 
 <hr class="mb-3">
-
 
 <!-- footer -->
 
@@ -126,7 +157,6 @@ help wanted
 })
 
 }
-
 
 function changeTab(tab){
 
