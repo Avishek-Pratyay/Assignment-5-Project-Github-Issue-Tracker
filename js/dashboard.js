@@ -58,7 +58,6 @@ issue.priority === "HIGH"
 : issue.priority === "MEDIUM"
 ? "bg-yellow-100 text-yellow-700 border border-yellow-300 rounded-full px-2 py-1"
 : "bg-gray-100 text-gray-600 border border-gray-300 rounded-full px-2 py-1"
-
 /* -------- LABELS (DYNAMIC) -------- */
 
 let labelsHTML = ""
